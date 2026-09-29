@@ -1,6 +1,6 @@
 type tie<logic>
 // ch17_spec.tie —— 规范正文 · 第 17 章 生态协议与格式
-import "REDACTED_LOCAL_PATH/tie-repo/tofflib/spec/pdfdoc.tie" as dp
+import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/pdfdoc.tie" as dp
 
 namespace ch17 {
 

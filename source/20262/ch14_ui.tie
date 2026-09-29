@@ -1,6 +1,6 @@
 type tie<logic>
 // ch14_ui.tie —— 规范正文 · 第 14 章 界面元素块与图语法
-import "REDACTED_LOCAL_PATH/tie-repo/tofflib/spec/pdfdoc.tie" as dp
+import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/pdfdoc.tie" as dp
 
 namespace ch14 {
 
