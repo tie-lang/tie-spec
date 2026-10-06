@@ -169,7 +169,7 @@ pub func chapter() {
 
     // ---------------- 3.13 ----------------
     dp.h2("3.13  可空链")
-    dp.p("可能缺失的值有三种处理记号：判定是否存在、给出默认值、沿链继续访问。三者配合，使「取值可能为空」这条常见路径不必层层写分支。")
+    dp.p("可空值写作 Option<T>（Some 持值、None 表示缺失，见 8.1）。它有三种处理记号：判定是否存在、给出默认值、沿链继续访问。三者配合，使「取值可能为空」这条常见路径不必层层写分支。")
     var w3 = table_new_i64()
     table_push(w3, 150)
     table_push(w3, 301)
@@ -177,14 +177,15 @@ pub func chapter() {
     table_push(h3k, "记号")
     table_push(h3k, "语义")
     var r3: table<table<string>> = []
-    table_push(r3, dp.kvrow("expr ?", "取出值；若缺失则立即从当前函数返回（错误向上传播）。"))
-    table_push(r3, dp.kvrow("expr ?: 默认值", "取值；若缺失则用右侧表达式。右侧只在缺失时求值。"))
-    table_push(r3, dp.kvrow("obj ?. 字段", "安全字段访问；对象缺失则整体为缺失，不继续求值。"))
-    table_push(r3, dp.kvrow("obj ?. 方法()", "安全方法调用；同上。"))
-    table_push(r3, dp.kvrow("obj ?[ 下标 ]", "安全下标访问；越界或缺失则整体为缺失。"))
+    table_push(r3, dp.kvrow("expr ?", "取出 Option 内的值；为 None 则立即从当前函数返回（错误向上传播）。"))
+    table_push(r3, dp.kvrow("expr ?: 默认值", "取出 Option 内的值；为 None 则用右侧表达式。右侧只在缺失时求值。"))
+    table_push(r3, dp.kvrow("opt ?. 字段", "在可空值上取字段；为 None 则整体为 None，不继续求值。"))
+    table_push(r3, dp.kvrow("opt ?. 方法()", "在可空值上调用方法；同上。"))
+    table_push(r3, dp.kvrow("opt ?[ 下标 ]", "在可空值上取下标；为 None 或越界则整体为 None。"))
     dp.tbl(h3k, r3, w3)
-    dp.codeblock(dp.src(["var port = cfg[\"port\"] ?: 8080          // 缺失则取默认", "var city = user?.address?.city ?: \"未填\"  // 沿链安全访问", "var x = parse(s) ?                        // 失败则向上传播"]))
-    dp.p("安全链的语义是缺失短路：链上任一环缺失，后续访问不再发生，整个表达式求值为缺失。这既免去了对空值的逐层判断，也避免了「先判断再访问」之间可能出现的状态变化。")
+    dp.codeblock(dp.src(["var port = opt_port ?: 8080             // None 则取默认", "var city = user?.address?.city ?: \"未填\"  // 沿链安全访问", "var x = parse(s) ?                        // 失败则向上传播"]))
+    dp.p("可空链的语义是缺失短路：链上任一环为 None，后续访问不再发生，整个表达式求值为 None。这既免去了对空值的逐层判断，也避免了「先判断再访问」之间可能出现的状态变化。")
+    dp.p("这些记号只作用于 Option。裸表与裸映射的下标不产生缺失：越界或不存在的键按 3.15 由运行期检查报错。需要「越界即缺失」时，先把值包进 Option（Some），再用 opt?[i]。")
 
     // ---------------- 3.14 ----------------
     dp.h2("3.14  解引用")
