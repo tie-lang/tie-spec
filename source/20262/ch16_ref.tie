@@ -92,6 +92,7 @@ pub func chapter() {
     table_push(r2, dp.kvrow("这个结构长什么样", "界面单元的 @ 元素块"))
     table_push(r2, dp.kvrow("这个取值能不能缺", "可空链 ? / ?: / ?. / ?["))
     table_push(r2, dp.kvrow("溢出怎么办", "带检查的运算 +? 或 checked_*"))
+    table_push(r2, dp.kvrow("越界怎么办", "读报错、写扩容；切片按边界截断（见 3.15）"))
     table_push(r2, dp.kvrow("这段代码在别的平台", "条件编译 #cfg"))
     dp.tbl(h2, r2, w2)
     dp.p("这张表也可以反向使用：阅读他人代码时看到某个位置写了东西，就知道作者在表达哪一类意图。")
