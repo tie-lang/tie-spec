@@ -15,13 +15,15 @@ type tie<tsh>
 
 var root = cwd()
 // 规范源码现仅存于本仓库（tofflib/spec 已于 2026-09-29 移除，tie-spec 成为唯一来源）。
-var spec = "REDACTED_LOCAL_PATH\\tie-repo\\tie-spec\\source\\20262"
+// 路径取相对：仓库根运行 → source/20262；源码目录内运行 → 当前目录。
+var spec = root + "\\source\\20262"
 // 产物落点 = 仓库根（与既有 tie-20262.pdf / tie.pdf 同址）。
-var outdir = "REDACTED_LOCAL_PATH\\tie-repo\\tie-spec"
+var outdir = root
 if !file_exists(spec + "\\build.tie") {
     // 退化路径：直接在源码目录内运行（root 即 source/20262）
     if file_exists(root + "\\build.tie") {
         spec = root
+        outdir = root + "\\..\\.."
     }
 }
 
