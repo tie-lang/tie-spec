@@ -1,6 +1,6 @@
 type tie<logic>
 // ch02_types.tie —— 规范正文 · 第 2 章 类型系统
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/pdfdoc.tie" as dp
+import "./pdfdoc.tie" as dp
 
 namespace ch02 {
 

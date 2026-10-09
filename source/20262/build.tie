@@ -8,26 +8,26 @@ type tie<logic>
 //
 // 生成：tiec build.tie -o build.exe && build.exe
 // 编排：make.tsh.tie（tshell）
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/pdfdoc.tie" as dp
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch01_lex.tie" as c01
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch02_types.tie" as c02
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch03_expr.tie" as c03
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch04_stmt.tie" as c04
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch05_func.tie" as c05
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch06_data.tie" as c06
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch07_port.tie" as c07
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch08_error.tie" as c08
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch09_module.tie" as c09
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch10_conc.tie" as c10
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch11_unsafe.tie" as c11
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch12_macro.tie" as c12
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch13_move.tie" as c13
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch14_ui.tie" as c14
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch15_tool.tie" as c15
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch16_ref.tie" as c16
-import "REDACTED_LOCAL_PATH/tie-repo/tie-spec/source/20262/ch17_spec.tie" as c17
+import "./pdfdoc.tie" as dp
+import "./ch01_lex.tie" as c01
+import "./ch02_types.tie" as c02
+import "./ch03_expr.tie" as c03
+import "./ch04_stmt.tie" as c04
+import "./ch05_func.tie" as c05
+import "./ch06_data.tie" as c06
+import "./ch07_port.tie" as c07
+import "./ch08_error.tie" as c08
+import "./ch09_module.tie" as c09
+import "./ch10_conc.tie" as c10
+import "./ch11_unsafe.tie" as c11
+import "./ch12_macro.tie" as c12
+import "./ch13_move.tie" as c13
+import "./ch14_ui.tie" as c14
+import "./ch15_tool.tie" as c15
+import "./ch16_ref.tie" as c16
+import "./ch17_spec.tie" as c17
 
-const OUT: string = "REDACTED_LOCAL_PATH/tie-repo/tie-spec/tie-20262.pdf";
+const OUT: string = "tie-20262.pdf";
 
 // 正文全部章节（两遍排版共用同一份调用序列）
 func body() {

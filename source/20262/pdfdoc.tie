@@ -16,7 +16,7 @@ type tie<logic>
 // 版式（pt）：A4 595×842；边距 左右 72、上 68、下 62；正文栏宽 451
 //   字号 正文10 / 代码9 / 表格9 / h3-11 / h2-13 / h1-18；行距 16/13/14
 
-import "REDACTED_LOCAL_PATH/tie-repo/tofflib/pdf.tie"
+import "../../../tofflib/pdf.tie"
 
 // ---------- 版面常量 ----------
 const DP_W: i64 = 595;
@@ -42,7 +42,7 @@ const LH_TBL: i64 = 14;
 
 // 字体路径与槽（两款同为 SIL OFL 1.1，可商用、可嵌入、可再分发）
 const F_BODY: string = "C:/Windows/Fonts/NotoSansSC-VF.ttf";
-const F_MONO: string = "REDACTED_USER_PATH/AppData/Local/Microsoft/Windows/Fonts/JetBrainsMono-Regular.ttf";
+const F_MONO: string = "fonts/JetBrainsMono-Regular.ttf";
 const SLOT_BODY: i64 = 0;
 const SLOT_MONO: i64 = 1;
 
