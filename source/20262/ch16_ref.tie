@@ -31,7 +31,7 @@ pub func chapter() {
 
     // ---------------- 16.6 ----------------
     dp.h2("16.6  常用内建")
-    dp.codeblock(dp.src(["var t: table<i64> = []        // 空表：字面量即构造", "var m: map<i64> = [:]         // 空映射", "t <- v                        // 追加（返回自身）", "println(s)              // 输出一行", "len(t)                  // 元素数或字节数", "to_string(v)            // 转文本（自由函数：接收者不限类型）", "s.len()  s.char(i)      // 码点数；取第 i 个码点", "s.split(sep)  s.join(sep)   s.contains(sub)  s.trim()", "t.sort()  t.reverse()  t.distinct()   // 集合操作（见 2.20）", "t.group_by(key)  a.concat(b)          // 分组与拼接", "xs.iter_map(f)  xs.iter_filter(p)     // 迭代器适配（见 6.11）", "xs.iter_take(n)  iter_zip(a, b)  iter_chain(a, b)", "r.wrap_err(msg)  e.cause()  e.root_cause()   // 错误链（见 8.7）", "Ok(v)  Err(e)  Some(v)  None           // 构造名默认可见（见 9.4）", "file_read(p)  file_write(p, s)", "byte_read(p)  byte_write(p, t)   // 二进制安全", "load_library(n)  get_proc(h, n)  dyn_call(p, ...)"]))
+    dp.codeblock(dp.src(["var t: table<i64> = []        // 空表：字面量即构造", "var m: map<i64> = [:]         // 空映射", "t <- v                        // 追加（返回自身）", "println(s)              // 输出一行", "len(t)                  // 元素数或字节数", "to_string(v)            // 转文本（自由函数：接收者不限类型）", "len(s)  str_char(s, i)  // 码点数；取第 i 个码点", "str.trim(s)  str.split(s, sep)  str.join(xs, sep)  str.contains(s, sub)", "sort(t)  reverse(t)  distinct(t)   // 集合操作（见 2.20）", "group_by(t, key)  concat(a, b)        // 分组与拼接", "xs.iter_map(f)  xs.iter_filter(p)     // 迭代器适配（见 6.11）", "xs.iter_take(n)  iter_zip(a, b)  iter_chain(a, b)", "r.wrap_err(msg)  e.cause()  e.root_cause()   // 错误链（见 8.7）", "Ok(v)  Err(e)  Some(v)  None           // 构造名默认可见（见 9.4）", "file_read(p)  file_write(p, s)", "byte_read(p)  byte_write(p, t)   // 二进制安全", "load_library(n)  get_proc(h, n)  dyn_call(p, ...)"]))
 
     // ---------------- 16.7 ----------------
     dp.h2("16.7  诊断编号")
@@ -78,6 +78,7 @@ pub func chapter() {
     table_push(h2, "写在哪")
     var r2: table<table<string>> = []
     table_push(r2, dp.kvrow("这个参数能否被改", "参数名前缀：ref / immut / move"))
+    table_push(r2, dp.kvrow("这个名住在哪里", "住在实体里的用点；外面的用箭头（见 3.11）"))
     table_push(r2, dp.kvrow("改写形参的改动如何交回", "ref 写回原对象，或经返回值合并（见 13.1）"))
     table_push(r2, dp.kvrow("这个值要不要保留", "不要保留用 move，只读用 immut"))
     table_push(r2, dp.kvrow("这一项的默认取值", "参数默认值（须连续居尾）"))

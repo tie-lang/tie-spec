@@ -29,8 +29,8 @@ pub func chapter() {
 
     // ---------------- 6.4 ----------------
     dp.h2("6.4  方法调用")
-    dp.p("点号调用是对命名空间函数的转发：编译器把 obj.method(args) 解释为「同名命名空间下的 method，接收者作为第一个参数」。这条规则是普遍的：凡命名空间内首参为某类型的函数，都可以写成该类型值的方法形态——内建类型同样适用。")
-    dp.codeblock(dp.src(["var p = Point(3.0, 4.0)", "println(p.dist() -> to_string)", "", "p.move_by(1.0, 1.0)", "", "s.len()              // s.len() 的方法形态", "t.push(v)            // 与 t <- v 等价的显式形态"]))
+    dp.p("点号调用是对命名空间函数的转发：编译器把 obj.method(args) 解释为「与 obj 从属的命名空间下的 method，接收者作为第一个参数」。前提是 「obj 有成员可谈从属」——结构（字段与同名命名空间的方法）、枚举（变体与方法）、命名空间与文件（成员）。「纯数据值不设点」：表与字符串没有成员，它们的操作写成自由函数 `op(xs, …)`（如 `table_pop(t)`），或送进箭头 `xs -> op(…)`（数据作末参）。")
+    dp.codeblock(dp.src(["var p = Point(3.0, 4.0)", "println(p.dist() -> to_string)", "", "p.move_by(1.0, 1.0)", "", "table_pop(t)         // 表操作：自由函数", "t -> table_pop()     // 表操作：箭头（数据作末参）"]))
     dp.p("转发意味着方法的参数规则与普通函数完全一致——默认参数、命名实参、借用与转移约定都可以用在方法上。接收者不参与命名，也不能被默认值补齐：它由调用对象给出。")
     dp.codeblock(dp.src(["struct Counter { var n: i64 = 0; }", "", "namespace Counter {", "    pub func bump(c: Counter, step: i64 = 1) -> i64 {", "        return c.n + step", "    }", "}", "", "c.bump()             // step 取默认", "c.bump(step: 4)      // 命名实参"]))
     dp.p("接收者的传递约定由命名空间函数声明决定：需要修改调用对象时把接收者声明为可写借用。")

@@ -227,14 +227,14 @@ pub func chapter() {
     table_push(h6c, "函数")
     table_push(h6c, "语义")
     var r6c: table<table<string>> = []
-    table_push(r6c, dp.kvrow("t.sort()", "升序排序，元素需可比较；原地生效并返回自身。"))
-    table_push(r6c, dp.kvrow("t.sort_by(cmp)", "以比较函数排序；原地生效并返回自身。"))
-    table_push(r6c, dp.kvrow("t.reverse()", "逆置；原地生效并返回自身。"))
-    table_push(r6c, dp.kvrow("t.distinct()", "保序去重，返回新表。"))
-    table_push(r6c, dp.kvrow("a.concat(b)", "拼接两表，返回新表。"))
-    table_push(r6c, dp.kvrow("t.group_by(key)", "按键函数分组，返回 map<table<T>>。"))
+    table_push(r6c, dp.kvrow("sort(t)", "升序排序，元素需可比较；原地生效并返回自身。"))
+    table_push(r6c, dp.kvrow("sort_by(t, cmp)", "以比较函数排序；原地生效并返回自身。"))
+    table_push(r6c, dp.kvrow("reverse(t)", "逆置；原地生效并返回自身。"))
+    table_push(r6c, dp.kvrow("distinct(t)", "保序去重，返回新表。"))
+    table_push(r6c, dp.kvrow("concat(a, b)", "拼接两表，返回新表。"))
+    table_push(r6c, dp.kvrow("group_by(t, key)", "按键函数分组，返回 map<table<T>>。"))
     dp.tbl(h6c, r6c, w6c)
-    dp.codeblock(dp.src(["var top = scores -> sort() -> reverse() -> iter_take(10)", "var rows = orders.group_by(o -> o.city)"]))
+    dp.codeblock(dp.src(["var top = scores -> sort() -> reverse() -> iter_take(10)", "var rows = orders -> group_by(o -> o.city)"]))
     dp.p("排序是稳定的：相等元素的相对次序在排序后保持不变。这让多重排序可以先按次关键字排序、再按主关键字排序地组合出来。")
 
 }
