@@ -889,3 +889,8 @@ pub func end(path: string) -> bool {
 }
 
 }
+
+// 规范排版辅助：左右花括号的字符串形态（. 2026-10-12 正典化：原先每章一份
+// 同名私有副本，跨章解析绑定单一实现；顶层可见性收紧后统一到此，唯一导出。
+pub func lb() -> string { return str_from_code(123) }
+pub func rb() -> string { return str_from_code(125) }

@@ -68,7 +68,5 @@ pub func chapter() {
 }
 
 // 左右花括号的字符串形态（展示含花括号的代码示例时用）
-func lb() -> string { return str_from_code(123) }
-func rb() -> string { return str_from_code(125) }
 
 }
