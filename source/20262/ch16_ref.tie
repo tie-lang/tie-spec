@@ -78,6 +78,7 @@ pub func chapter() {
     table_push(h2, "写在哪")
     var r2: table<table<string>> = []
     table_push(r2, dp.kvrow("这个参数能否被改", "参数名前缀：ref / immut / move"))
+    table_push(r2, dp.kvrow("改写形参的改动如何交回", "ref 写回原对象，或经返回值合并（见 13.1）"))
     table_push(r2, dp.kvrow("这个值要不要保留", "不要保留用 move，只读用 immut"))
     table_push(r2, dp.kvrow("这一项的默认取值", "参数默认值（须连续居尾）"))
     table_push(r2, dp.kvrow("调用时这一项是什么", "命名实参"))
