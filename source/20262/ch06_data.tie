@@ -83,6 +83,7 @@ pub func chapter() {
     dp.p("要让自定义类型可用于遍历语句，在命名空间里提供两个约定函数：一个判断是否还有元素，一个取出当前元素并前进。有了它们，该类型就能出现在遍历语句中。")
     dp.codeblock(dp.src([r"namespace Ring {", r"    pub func has_next(r: Ring) -> bool { return r.i < r.n }", r"    pub func next(ref r: Ring) -> i64 { r.i += 1; return r.buf[r.i - 1] }", r"}", r"", r"for v in ring { println(to_string(v)) }"]))
     dp.p("约定遍历的行为与内建表一致：遍历中的修改规则、元素顺序、取尽后的判定都遵循同一套语义，因此使用方不必区分遍历的是表还是自定义类型。")
+    dp.p("此外，形如 `fn() -> Option<T>` 的值（流，见 6.11）同样可以直接遍历——每次调用取下一个元素，取尽以 None 表明。")
 
     // ---------------- 6.11 ----------------
     dp.h2("6.11  迭代器适配")
@@ -101,6 +102,9 @@ pub func chapter() {
     table_push(r3d, dp.kvrow("iter_chain(a, b)", "先后串接两路元素。"))
     dp.tbl(h3d, r3d, w3d)
     dp.codeblock(dp.src(["var top = scores -> iter_map(func(v: i64) -> i64 { return v * 2 }) -> iter_filter(func(v: i64) -> bool { return v > 0 })", "for (name, score) in iter_zip(names, scores) " + lb() + "", "    println(name + \": \" + to_string(score))", "" + rb() + ""]))
+    dp.h3("惰性流")
+    dp.p("上表的适配函数逐元素物化，适合表内数据。需要在大序列上短路求值时（例如「取前十个」而源还有余量），用「流」：流是一个每次调用返回下一个元素的函数——有素即 `Option.Some(元素)`，取尽恒 `Option.None`。表经 `stream_from` 成流；适配链逐元素传递，`stream_take` 达到数量后不再向上游拉取；遍历语句直接消费流（有素绑定元素执行循环体、取尽退出）。适配函数：`stream_map`、`stream_filter`、`stream_take`（保持流形态）；`stream_collect`（成表）、`stream_each`（逐元素应用）收束。")
+    dp.codeblock(dp.src(["var top2 = scores -> stream_from() -> stream_take(10) -> stream_collect()", "for v in stream_from(scores) -> stream_take(3) " + lb() + "", "    println(to_string(v))", "" + rb() + ""]))
     dp.p("适配器是惰性的：组合若干适配器不产生中间表，元素在被遍历到的那一刻才计算并流动。这条约定让「变换链」的成本与手写循环相当，也使适配器可以安全作用于无限序列（如计数源）。需要把结果固化为表时，用 table_from(xs) 收拢。")
 
 }
