@@ -33,7 +33,7 @@ pub func chapter() {
     var rows: table<table<string>> = []
     table_push(rows, dp.kvrow("type tie<logic>", "逻辑代码。可含函数、结构、模块级声明；可编译为可执行程序或静态库。默认角色。"))
     table_push(rows, dp.kvrow("type tie<class>", "类库文件。与逻辑代码同为可执行语义，但只编译为静态库，不产生入口。"))
-    table_push(rows, dp.kvrow("type tie<script>", "脚本。顶层语句按书写顺序直接执行，不要求显式入口。"))
+    table_push(rows, dp.kvrow("type tie<tsc>", "脚本。顶层语句按书写顺序直接执行，不要求显式入口。"))
     table_push(rows, dp.kvrow("type tie<data>", "纯数据。只允许数据声明与字面量，不允许函数体；可被其他文件导入作为常量源。"))
     table_push(rows, dp.kvrow("type tie<ui>", "界面文件。声明界面单元树与交互契约，由编译器生成界面代码（见第 14 章）。"))
     table_push(rows, dp.kvrow("type tie<db>", "数据库文件。声明表结构与查询，编译器生成建表与读写代码。"))

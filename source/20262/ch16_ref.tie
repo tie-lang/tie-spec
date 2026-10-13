@@ -11,7 +11,7 @@ pub func chapter() {
 
     // ---------------- 16.1 ----------------
     dp.h2("16.1  文件与角色")
-    dp.codeblock(dp.src(["type tie               // 泛型入口（Type 角色）", "type tie<logic>        // 逻辑代码（默认）", "type tie<class>        // 类库", "type tie<script>       // 脚本", "type tie<data>         // 纯数据", "type tie<ui>           // 界面", "type tie<db>           // 数据库", "type tie<port>         // 接口", "type tie<ir>           // 中间表示", "type tie<test>         // 测试", "type tie<bench>        // 基准", "type tie<zd>           // 结构化二进制数据", "type tie<tsh>          // 终端脚本"]))
+    dp.codeblock(dp.src(["type tie               // 泛型入口（Type 角色）", "type tie<logic>        // 逻辑代码（默认）", "type tie<class>        // 类库", "type tie<tsc>          // 脚本", "type tie<data>         // 纯数据", "type tie<ui>           // 界面", "type tie<db>           // 数据库", "type tie<port>         // 接口", "type tie<ir>           // 中间表示", "type tie<test>         // 测试", "type tie<bench>        // 基准", "type tie<zd>           // 结构化二进制数据", "type tie<tsh>          // 终端脚本"]))
 
     // ---------------- 16.2 ----------------
     dp.h2("16.2  声明形态")
