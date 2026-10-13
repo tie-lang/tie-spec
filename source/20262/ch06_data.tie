@@ -94,13 +94,13 @@ pub func chapter() {
     table_push(h3d, "函数")
     table_push(h3d, "语义")
     var r3d: table<table<string>> = []
-    table_push(r3d, dp.kvrow("xs.iter_map(f)", "逐元素变换，产出 f(元素)。"))
-    table_push(r3d, dp.kvrow("xs.iter_filter(p)", "保留判定为真的元素。"))
-    table_push(r3d, dp.kvrow("xs.iter_take(n)", "取前 n 个元素。"))
+    table_push(r3d, dp.kvrow("iter_map(f, xs)", "逐元素变换，产出 f(元素)；返回新表。"))
+    table_push(r3d, dp.kvrow("iter_filter(p, xs)", "保留判定为真的元素；返回新表。"))
+    table_push(r3d, dp.kvrow("iter_take(n, xs)", "取前 n 个元素；返回新表。"))
     table_push(r3d, dp.kvrow("iter_zip(a, b)", "两路并读，产出 (a_i, b_i) 元组，短者取尽即止。"))
     table_push(r3d, dp.kvrow("iter_chain(a, b)", "先后串接两路元素。"))
     dp.tbl(h3d, r3d, w3d)
-    dp.codeblock(dp.src(["var top = scores -> iter_map(v -> v * 2) -> iter_filter(v -> v > 0)", "for (name, score) in iter_zip(names, scores) " + lb() + "", "    println(name + \": \" + to_string(score))", "" + rb() + ""]))
+    dp.codeblock(dp.src(["var top = scores -> iter_map(func(v: i64) -> i64 { return v * 2 }) -> iter_filter(func(v: i64) -> bool { return v > 0 })", "for (name, score) in iter_zip(names, scores) " + lb() + "", "    println(name + \": \" + to_string(score))", "" + rb() + ""]))
     dp.p("适配器是惰性的：组合若干适配器不产生中间表，元素在被遍历到的那一刻才计算并流动。这条约定让「变换链」的成本与手写循环相当，也使适配器可以安全作用于无限序列（如计数源）。需要把结果固化为表时，用 table_from(xs) 收拢。")
 
 }
