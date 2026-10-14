@@ -23,7 +23,7 @@ pub func chapter() {
 
     // ---------------- 16.4 ----------------
     dp.h2("16.4  表达式记号")
-    dp.codeblock(dp.src(["a -> f                  // 数据流管道", "t -> t + 1              // 短闭包（要求函数值的位置）", "x in m                  // 成员判定", "x not in m              // 成员取反", "v ?: 10                 // 安全默认值", "v?                      // 存在判定", "\\p                      // 解引用", "n %%= 1                 // 原地取余并写回", "a ** b                  // 幂", "a **? b                 // 带检查的幂", "0..10   0..=10          // 范围"]))
+    dp.codeblock(dp.src(["a -> f                  // 数据流管道", "t -> t + 1              // 短闭包（要求函数值的位置）", "x in m                  // 成员判定", "x not in m              // 成员取反", "cond ? a : b            // 条件运算（右结合）", "v ?: 10                 // 安全默认值", "v?                      // 存在判定", "\\p                      // 解引用", "n %%= 1                 // 原地取余并写回", "a ** b                  // 幂", "a **? b                 // 带检查的幂", "0..10   0..=10          // 范围"]))
 
     // ---------------- 16.5 ----------------
     dp.h2("16.5  语句形态")
@@ -60,7 +60,7 @@ pub func chapter() {
     dp.codeblock(dp.src([r"""普通字符串，花括号即字面量""", r"h""{插值}"" 花括号内求值", r"h""{x:08.2f}"" 插值带格式说明符", r"r""原始字符串无转义""", r"""""""多行字符串，按闭合引号缩进剥离""""""", r"'A'                       // 字符", r"", r"42  0xFF  0b1011  0o755  0t1T0      // 五种进制", r"1_000_000                           // 下划线分组", r"3.14  1.5e3                         // 浮点", r"42i32  0x80u16  1.5f32  0.1d        // 类型后缀", r"-1t  0t  1t                         // 三值"]))
     // ---------------- 16.10 ----------------
     dp.h2("16.10  运算符速览")
-    dp.codeblock(dp.src([r"a + b   a - b   a * b   a / b   a % b     // 算术；容器上 + 为拼接、* 为重复", r"a \ b   a %% b                            // 整除与成对取余", r"a ** b   a **? b                          // 幂；带检查的幂", r"a +? b   a -? b   a *? b   a <<? b         // 带检查的算术与移位", r"a == b   a != b   a < b   a <= b          // 比较（可链式）", r"a in xs   a not in xs                     // 成员判定", r"v is T                                    // 类型判定（动态值，见 3.16）", r"cond && cond   cond || cond   !cond       // 逻辑", r"a << b   a >> b   a & b   a | b   a ^ b   ~a   // 位运算（整数）", r"a | b   a & b   a - b   a ^ b            // 容器：并、交、差、对称差", r"x = v   x += v   x \= v   x %%= v         // 赋值与复合赋值", r"", r"[x * x for x in xs if c]   // 集合综合（见 3.17）", r"", r"v -> f            // 管道", r"v -> [i]          // 管道进下标", r"v -> .field       // 管道进字段", r"v -> { x -> e }   // 块管道（x 为绑定名）", r"x <- v            // 反向赋值", r"t <- v            // 容器追加（返回自身，可链式）", r"(a, b) <- t       // 解构", r"v with { k: x }   // 不可变更新", r"opt ?   opt ?: d   obj?.f   obj?[i]        // 可空链", r"xs[1..3]   xs[..2]   xs[2..]   xs[..]      // 切片", r"await f                                    // 延后取得异步结果（见 10.6）", r"\p                                        // 解引用（不安全）"]))
+    dp.codeblock(dp.src([r"a + b   a - b   a * b   a / b   a % b     // 算术；容器上 + 为拼接、* 为重复", r"a \ b   a %% b                            // 整除与成对取余", r"a ** b   a **? b                          // 幂；带检查的幂", r"a +? b   a -? b   a *? b   a <<? b         // 带检查的算术与移位", r"a == b   a != b   a < b   a <= b          // 比较（可链式）", r"a in xs   a not in xs                     // 成员判定", r"v is T                                    // 类型判定（动态值，见 3.17）", r"cond && cond   cond || cond   !cond       // 逻辑", r"cond ? a : b                              // 条件运算（右结合）", r"a << b   a >> b   a & b   a | b   a ^ b   ~a   // 位运算（整数）", r"a | b   a & b   a - b   a ^ b            // 容器：并、交、差、对称差", r"x = v   x += v   x \= v   x %%= v         // 赋值与复合赋值", r"", r"[x * x for x in xs if c]   // 集合综合（见 3.18）", r"", r"v -> f            // 管道", r"v -> [i]          // 管道进下标", r"v -> .field       // 管道进字段", r"v -> { x -> e }   // 块管道（x 为绑定名）", r"x <- v            // 反向赋值", r"t <- v            // 容器追加（返回自身，可链式）", r"(a, b) <- t       // 解构", r"v with { k: x }   // 不可变更新", r"opt ?   opt ?: d   obj?.f   obj?[i]        // 可空链", r"xs[1..3]   xs[..2]   xs[2..]   xs[..]      // 切片", r"await f                                    // 延后取得异步结果（见 10.6）", r"\p                                        // 解引用（不安全）"]))
     // ---------------- 16.11 ----------------
     dp.h2("16.11  语句速览")
     dp.codeblock(dp.src([r"if c { } else if c2 { } else { }", r"var x = if c { a } else { b }              // 条件取值（见 4.13）", r"if let Some(v) = opt { }", r"while c { }", r"for i in 0..n { }", r"for x in xs { }", r"for c in s.chars() { }", r"lbl: for i in 0..n { break lbl }", r"switch v { case 1: ... default: ... }", r"var x = switch v { 0 -> a, _ -> b }        // 分支即表达式", r"var (a, b) = pair", r"var (a, ...rest) = xs", r"guard c else { return }", r"defer { cleanup() }", r"try { x = f()? }", r"return v    yield v    break    continue", r"panic(""msg"")", r"unsafe goto #tag                            // 配 #[tag.tag] 标签", r"unsafe { }                                  // 不安全块"]))
@@ -93,11 +93,11 @@ pub func chapter() {
     table_push(r2, dp.kvrow("这一步依赖什么", "数据流图或管道"))
     table_push(r2, dp.kvrow("这个结构长什么样", "界面单元的 @ 元素块"))
     table_push(r2, dp.kvrow("按条件在两个值中取一个", "if 表达式（见 4.13）"))
-    table_push(r2, dp.kvrow("动态值的实际类型", "类型判定 is（见 3.16）"))
+    table_push(r2, dp.kvrow("动态值的实际类型", "类型判定 is（见 3.17）"))
     table_push(r2, dp.kvrow("延后取得异步结果", "future 凭据与 await（见 10.6）"))
     table_push(r2, dp.kvrow("这个取值能不能缺", "可空链 ? / ?: / ?. / ?["))
     table_push(r2, dp.kvrow("溢出怎么办", "带检查的运算 +? 或 checked_*"))
-    table_push(r2, dp.kvrow("越界怎么办", "读报错、写扩容；切片按边界截断（见 3.15）"))
+    table_push(r2, dp.kvrow("越界怎么办", "读报错、写扩容；切片按边界截断（见 3.16）"))
     table_push(r2, dp.kvrow("这段代码在别的平台", "条件编译 #cfg"))
     dp.tbl(h2, r2, w2)
     dp.p("这张表也可以反向使用：阅读他人代码时看到某个位置写了东西，就知道作者在表达哪一类意图。")
