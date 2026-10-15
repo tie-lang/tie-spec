@@ -1,2 +1,5 @@
 # 构建产物（由 make.tsh.tie 生成，勿入库）
 source/20262/build.exe
+# tpkg 规范
+target/
+_local_only/
