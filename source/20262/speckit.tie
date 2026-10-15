@@ -5,8 +5,8 @@ type tie<class>
 // 只做版式原语——标题/段落/代码块/表格/清单/提示框；内容在内容分片里写。
 // 依赖：tofflib 的 docx.tie（版式）+ ooxml.tie（打包）。
 
-import "../../../tofflib/docx.tie" as dx
-import "../../../tofflib/ooxml.tie" as ox
+import "../../../tofflib/src/docx.tie" as dx
+import "../../../tofflib/src/ooxml.tie" as ox
 
 namespace spec {
 
