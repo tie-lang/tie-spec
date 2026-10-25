@@ -1,6 +1,6 @@
 type tie<logic>
 // ch05_func.tie —— 规范正文 · 第 5 章 函数
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch05 {
 

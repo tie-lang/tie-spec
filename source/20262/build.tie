@@ -8,7 +8,7 @@ type tie<logic>
 //
 // 生成：tiec build.tie -o build.exe && build.exe
 // 编排：make.tsh.tie（tshell）
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 import "./ch01_lex.tie" as c01
 import "./ch02_types.tie" as c02
 import "./ch03_expr.tie" as c03

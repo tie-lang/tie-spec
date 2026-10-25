@@ -1,6 +1,6 @@
 type tie<logic>
 // ch10_conc.tie —— 规范正文 · 第 10 章 并发
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch10 {
 

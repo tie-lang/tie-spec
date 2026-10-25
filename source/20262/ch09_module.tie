@@ -1,6 +1,6 @@
 type tie<logic>
 // ch09_module.tie —— 规范正文 · 第 9 章 模块与导入
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch09 {
 

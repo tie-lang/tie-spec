@@ -1,6 +1,6 @@
 type tie<logic>
 // ch13_move.tie —— 规范正文 · 第 13 章 所有权与移动
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch13 {
 

@@ -1,6 +1,6 @@
 type tie<logic>
 // ch01_lex.tie —— 规范正文 · 第 1 章 词法与记号
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch01 {
 

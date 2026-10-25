@@ -1,6 +1,6 @@
 type tie<logic>
 // ch07_port.tie —— 规范正文 · 第 7 章 接口
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch07 {
 

@@ -1,6 +1,6 @@
 type tie<logic>
 // ch06_data.tie —— 规范正文 · 第 6 章 数据结构
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch06 {
 

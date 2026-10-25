@@ -1,6 +1,6 @@
 type tie<logic>
 // ch12_macro.tie —— 规范正文 · 第 12 章 宏与元编程
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch12 {
 

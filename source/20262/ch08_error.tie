@@ -1,6 +1,6 @@
 type tie<logic>
 // ch08_error.tie —— 规范正文 · 第 8 章 错误处理
-import "./pdfdoc.tie" as dp
+import "../../../tofflib/src/doc/pdfdoc.tie" as dp
 
 namespace ch08 {
 
