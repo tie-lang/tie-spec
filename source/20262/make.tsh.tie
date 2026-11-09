@@ -62,7 +62,7 @@ if file_exists(font) {
 println("")
 println("[1/2] compiling build entry ...")
 var exe = spec + "\\build.exe"
-var rcc = exec_code("cmd /c " + tiec + " " + src + " -o " + exe)
+var rcc = exec_code("cmd /c " + tiec + " " + src + " -o " + exe + " --no-cache")
 if rcc != 0 {
     println("compile failed (exit " + to_string(rcc) + "); run manually to see errors:")
     println("    " + tiec + " " + src)
