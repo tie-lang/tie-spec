@@ -106,6 +106,7 @@ count, _tmp, 用户数, 结果1
             ["类型", "i8 i16 i32 i64 u8 u16 u32 u64 i128 u128 f32 f64 bool trit char string void code table map num text misc any"],
             ["语句", "if else while for in switch case default when break continue return yield goto"],
             ["修饰与更新", "ref immut move deep shared inline repr unsafe const async with reentrant"],
+            ["求值时机", "lazy eager"],
             ["表达式", "is await"],
             ["字面量", "true false zero"],
             ["并发与故障", "panic"],
@@ -949,16 +950,16 @@ const MAX = 1024
                器对遮蔽给出提示，因为它常是笔误。"],
         ["p", "函数参数与函数体的局部变量处于同一作用域。闭包可以读取其外层函数的变量，规则见第 5 章。"],
         ["h3", "全局变量的求值时机"],
-        ["p", "全局变量的初值在程序入口求值。声明前可以加求值时机前缀：lazy 表示推迟到第一次读取时\
-               求值，并且只求值一次；eager 表示把入口求值这一默认行为显式写出。不加前缀的 var 声明\
-               始终有效，三个方向都可用。"],
+        ["p", "顶层变量的初值在程序入口求值，局部变量的初值在到达声明语句时求值。声明前可以加求值\
+               时机前缀：lazy 表示推迟到第一次读取时求值，并且至多求值一次；eager 把这一默认行为\
+               显式写出。前缀只用于顶层声明，const 声明同样可以加前缀。"],
         ["code", "tie", "
 var a: i64 = 7
 lazy var b: i64 = compute()
 eager var c: i64 = compute()
 "],
-        ["p", "lazy 与 eager 是上下文关键字，只在紧邻变量声明时承担修饰作用；在其他位置它们仍是普通\
-               标识符，可以继续作变量名、参数名与函数名。"],
+        ["p", "lazy 与 eager 是保留字（见 1.6），不可用作标识符；它们只在变量声明与顶层导入之前\
+               承担修饰作用，导入位置的用法见 9.1。"],
         ["p", "求值时机前缀适用于数值、布尔、字符、三值、文本、结构、枚举与表。映射、端口、函数值、\
                动态类型等不具备对应的惰性物化语义，声明时由编译期拒绝。表的初值必须写成表字面量。"],
         ["p", "初值直接或间接引用自身构成循环初始化。初始化过程区分「未初始化」「初始化中」「已完成」\
