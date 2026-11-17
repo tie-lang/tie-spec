@@ -102,7 +102,7 @@ count, _tmp, 用户数, 结果1
         ["p", "关键字是保留字，不可用作标识符。它们按用途分组如下。"],
         ["tblw",
             ["用途", "关键字"],
-            ["声明", "var const func struct enum namespace port interface impl import as pub using extern macro alias actor extends"],
+            ["声明", "var const func struct enum namespace module port interface impl import as pub using extern macro alias actor extends"],
             ["类型", "i8 i16 i32 i64 u8 u16 u32 u64 i128 u128 f32 f64 bool trit char string void code table map num text misc any"],
             ["语句", "if else while for in switch case default when break continue return yield goto"],
             ["修饰与更新", "ref immut move deep shared inline repr unsafe const async with reentrant"],
